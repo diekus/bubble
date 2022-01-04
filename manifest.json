@@ -1,0 +1,16 @@
+{
+    "name": "Bubble",
+    "short_name": "Bubble",
+    "start_url": "index.html",
+    "description": "Bubble is a 360 image viewer.",
+    "display": "standalone",
+    "display_override": ["window-controls-overlay"],
+    "background_color": "#AFAFAF",
+    "theme_color": "#00CDFF",
+    "orientation": "any",
+    "icons": [{
+        "src": "images/bubble-icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }]
+}
