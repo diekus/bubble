@@ -28,7 +28,6 @@ class BubblePicture extends HTMLElement {
 
         const engine = new BABYLON.Engine(renderCanvas, true);
         const scene = this.createScene();
-        let bubble = null;
         engine.runRenderLoop(function () {
             scene.render();
         });
@@ -45,11 +44,30 @@ class BubblePicture extends HTMLElement {
 
     createScene() {
         let scene = new BABYLON.Scene(this.engine);
+        scene.clearColor = new BABYLON.Color3(0.09, 0.24, 0.33);
         const camera = new BABYLON.ArcRotateCamera('camera', -Math.PI/2, Math.PI/2.5, 3, new BABYLON.Vector3(0, 0, 0));
         camera.attachControl (this.renderCanvas, true);
-        
         this.createBubble('images/bg.jpg');
+        //creates an animation for the start screen
+        const frameRate = 1;
+        const yRotation = new BABYLON.Animation("yRotation", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE);
+        const keyFrames = []; 
 
+        keyFrames.push({
+            frame: 0,
+            value: 1
+        });
+
+        keyFrames.push({
+            frame: frameRate,
+            value: 1.01
+        });
+
+        yRotation.setKeys(keyFrames);
+
+        this.bubble.animations.push(yRotation);
+
+        this.bub_animation = scene.beginAnimation(this.bubble, 0, 2 * frameRate, true);
         return scene;
     }
 
@@ -62,6 +80,14 @@ class BubblePicture extends HTMLElement {
         sphereMaterial.diffuseColor  = new BABYLON.Color3(1, 1, 1);
         sphereMaterial.emissiveTexture = new BABYLON.Texture(textureUrl, this.scene);
         this.bubble.material = sphereMaterial;
+    }
+
+    pauseBubbleAnimation() {
+        this.bub_animation.pause();
+    }
+
+    playBubbleAnimation() {
+        this.bub_animation.restart();
     }
 
 }
