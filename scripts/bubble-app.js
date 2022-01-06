@@ -1,9 +1,11 @@
 window.dispatchEvent(new Event('resize'));
 
 let bubble = document.querySelector('bubble-picture');
+let menu_handle = document.querySelector('.menu-handle');
+let menu_display = 1;
 
 //events
-let fileHandle;
+let fileHandle = null;
 const btnOpenFile = document.getElementById('btnOpenFile');
 btnOpenFile.addEventListener('click', async () => {
     [fileHandle] = await window.showOpenFilePicker();
@@ -12,6 +14,25 @@ btnOpenFile.addEventListener('click', async () => {
 
     bubble.changeImage(newImageURL);
 });
+
+menu_handle.addEventListener('click', () => {
+    switch(menu_display) {
+        case 1:
+            document.querySelector('.bubble-logo').style.display = 'none';
+            document.querySelector('#btnOpenFile').style.display = 'none';
+            menu_display = 0;
+        break;
+        case 0:
+            document.querySelector('.bubble-logo').style.display = 'inline-block';
+            document.querySelector('#btnOpenFile').style.display = 'inline-block';
+            menu_display = 1;
+        break;
+    }
+    
+    
+});
+
+
 
 
 

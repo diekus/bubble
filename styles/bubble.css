@@ -1,21 +1,22 @@
 body {
+    color: var(--text-color);
     width: 100vw;
     height: 100vh;
     margin: 0px;
     padding: 0px;
     display: grid;
-    grid-template: env(titlebar-area-height, 40px) 1fr auto auto 1fr / auto auto 1fr 1fr;
+    grid-template: env(titlebar-area-height, 40px) 1fr 1fr auto auto / 1fr auto auto 1fr;
     z-index: 0;
 }
 
 nav {
-    grid-area: 3 / 1 / 5 / 3;
+    grid-area: 4 / 2 / -1 / 4;
     background-color: var(--nav-background);
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 1rem 1rem 0 0;
     z-index: 100;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: .1rem 1rem 1.5rem 1rem;
 }
 
 bubble-picture {
@@ -43,3 +44,11 @@ button {
     -webkit-app-region: drag;
     app-region: drag;
 }
+
+.menu-handle {
+    /* margin-bottom: 1.5rem; */
+    text-align: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
