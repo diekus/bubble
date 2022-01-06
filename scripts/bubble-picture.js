@@ -74,12 +74,22 @@ class BubblePicture extends HTMLElement {
     createBubble(textureUrl) {
         if(this.bubble != null)
             this.bubble.dispose();
-        this.bubble =BABYLON.MeshBuilder.CreateSphere('bubble', {'diameter': 50, 'sideOrientation': BABYLON.Mesh.BACKSIDE});
+        this.bubble = BABYLON.MeshBuilder.CreateSphere('bubble', {'diameter': 50, 'sideOrientation': BABYLON.Mesh.BACKSIDE});
         this.bubble.scaling = new BABYLON.Vector3(1, -1, 1);
         const sphereMaterial = new BABYLON.StandardMaterial("bubble_texture", this.scene);
         sphereMaterial.diffuseColor  = new BABYLON.Color3(1, 1, 1);
         sphereMaterial.emissiveTexture = new BABYLON.Texture(textureUrl, this.scene);
         this.bubble.material = sphereMaterial;
+    }
+
+    changeImage(newImageURL) {
+        try{
+            this.bubble.material.emissiveTexture.dispose();
+            this.bubble.material.emissiveTexture = new BABYLON.Texture(newImageURL, this.scene);
+        }
+        catch(e){
+            console.error(e.message);
+        }
     }
 
     pauseBubbleAnimation() {
