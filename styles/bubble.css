@@ -7,6 +7,7 @@ body {
     display: grid;
     grid-template: env(titlebar-area-height, 40px) 1fr auto auto 1fr / auto auto 1fr 1fr;
     z-index: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
@@ -37,6 +38,29 @@ button {
     border-radius: 10px;
     cursor: pointer;
 }
+
+[type="file"] {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px;
+}
+
+[type="file"] + label {
+    background-color: hsla(192, 100%, 30%, 80%);
+    color: white;
+    padding: .5rem;
+    margin: 1rem;
+    border: 0px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+  }
 
 .titlebar-area {
     grid-area: 1 / 1 / 2 / 5;

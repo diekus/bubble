@@ -33,9 +33,19 @@ menu_handle.addEventListener('click', () => {
             menu_display = 1;
         break;
     }
-    
-    
 });
+
+//for browsers that do not support file system access API
+
+if(window.showOpenFilePicker == null)
+    btnOpenFile.style.display = 'none';
+else
+    document.getElementById('lblFile').style.display = 'none';
+
+let showFile = (input) => {
+    let file = input.files[0];
+    bubble.changeImage(URL.createObjectURL(file));
+};
 
 
 
