@@ -8,7 +8,6 @@ let isDark = window.matchMedia('(prefers-color-scheme: dark)');
 if(isDark.matches)
     bubble.changeImage('images/bgd.jpg');
 
-
 //events
 let fileHandle = null;
 const btnOpenFile = document.getElementById('btnOpenFile');
@@ -25,28 +24,38 @@ menu_handle.addEventListener('click', () => {
         case 1:
             document.querySelector('.bubble-logo').style.display = 'none';
             document.querySelector('#btnOpenFile').style.display = 'none';
+            document.getElementById('lblFile').style.display = 'none';
             menu_display = 0;
         break;
         case 0:
             document.querySelector('.bubble-logo').style.display = 'inline-block';
-            document.querySelector('#btnOpenFile').style.display = 'inline-block';
+            showFileButtons();
             menu_display = 1;
         break;
     }
 });
 
 //for browsers that do not support file system access API
+let hideFileButtons = () => {
+    if(window.showOpenFilePicker == null)
+        btnOpenFile.style.display = 'none';
+    else
+        document.getElementById('lblFile').style.display = 'none';
+};
 
-if(window.showOpenFilePicker == null)
-    btnOpenFile.style.display = 'none';
-else
-    document.getElementById('lblFile').style.display = 'none';
+let showFileButtons = () => {
+    if(window.showOpenFilePicker == null)
+        btnOpenFile.style.display = 'inline-block';
+    else
+        document.getElementById('lblFile').style.display = 'inline-block';
+};
 
 let showFile = (input) => {
     let file = input.files[0];
     bubble.changeImage(URL.createObjectURL(file));
 };
 
+hideFileButtons();
 
 
 
