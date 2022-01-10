@@ -4,6 +4,11 @@ let bubble = document.querySelector('bubble-picture');
 let menu_handle = document.querySelector('.menu-handle');
 let menu_display = 1;
 
+let isDark = window.matchMedia('(prefers-color-scheme: dark)');
+if(isDark.matches)
+    bubble.changeImage('images/bgd.jpg');
+
+
 //events
 let fileHandle = null;
 const btnOpenFile = document.getElementById('btnOpenFile');
