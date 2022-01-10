@@ -45,9 +45,10 @@ let hideFileButtons = () => {
 
 let showFileButtons = () => {
     if(window.showOpenFilePicker == null)
-        btnOpenFile.style.display = 'inline-block';
+        document.getElementById('lblFile').style.display = 'inline-block';    
     else
-        document.getElementById('lblFile').style.display = 'inline-block';
+        btnOpenFile.style.display = 'inline-block';
+        
 };
 
 let showFile = (input) => {
