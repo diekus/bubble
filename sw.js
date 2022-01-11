@@ -7,7 +7,8 @@ var urlsToCache = [
     'scripts/bubble-picture.js',
     'index.html',
     'images/bubble-icon.png',
-    'images/bg.jpg'
+    'images/bg.jpg',
+    'https://cdn.babylonjs.com/babylon.js'
 ];
 
 self.addEventListener('install', function(event) {
