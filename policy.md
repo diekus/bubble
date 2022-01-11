@@ -1,6 +1,6 @@
 diekus Privacy Policy
 
-This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from https://diek.us/pwinter (the “Site”).
+This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from https://diek.us/bubble (the “Site”).
 
 PERSONAL INFORMATION WE COLLECT
 
