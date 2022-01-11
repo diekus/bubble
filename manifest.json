@@ -1,6 +1,6 @@
 {
-    "name": "Bubble pictures",
-    "short_name": "Bubble",
+    "name": "bubble pictures",
+    "short_name": "bubble",
     "start_url": "index.html",
     "description": "Bubble is a 360 image viewer.",
     "display": "standalone",
