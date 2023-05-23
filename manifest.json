@@ -12,5 +12,8 @@
         "src": "images/bubble-icon.png",
         "sizes": "512x512",
         "type": "image/png"
-      }]
+      }],
+    "edge_side_panel": {
+        "preferred_width": 420
+    }
 }
