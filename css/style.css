@@ -86,10 +86,6 @@ a-scene {
     font-size: 0.9rem;
   }
 
-  a-scene {
-    width: 100vw;
-    height: calc(100vh - 120px);
-  }
 }
 
 @media (max-width: 480px) {
