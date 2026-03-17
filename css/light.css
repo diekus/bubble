@@ -1,0 +1,7 @@
+:root {
+    --color-fg: #111111;
+    --color-bg: #FAFAFA;
+    --color-bg-trans: rgba(255,255,255,0.8);
+    --color-theme: #00CDFF;
+    --color-theme-hover: #FAFAFA;
+}

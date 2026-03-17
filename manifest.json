@@ -1,19 +1,22 @@
 {
-    "name": "bubble pictures",
-    "short_name": "bubble",
-    "start_url": "index.html",
-    "description": "Bubble is a 360 image viewer.",
-    "display": "standalone",
-    "display_override": ["window-controls-overlay"],
-    "background_color": "#AFAFAF",
-    "theme_color": "#00CDFF",
-    "orientation": "any",
-    "icons": [{
-        "src": "images/bubble-icon.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }],
-    "edge_side_panel": {
-        "preferred_width": 420
+  "name": "bubble 360",
+  "short_name": "bubble",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#AFAFAF",
+  "theme_color": "#00CDFF",
+  "orientation": "any",
+  "description": "Bubble the 360 image viewer",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
+  ]
 }
