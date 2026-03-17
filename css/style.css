@@ -66,3 +66,40 @@ a-scene {
   height: 100vh;
   background: var(--background);
 }
+
+@media (max-width: 768px) {
+  body {
+    grid-template: 1fr 1fr auto / 1fr;
+  }
+
+  header {
+    grid-row: 3 / -1;
+    grid-column: 1 / -1;
+    margin: 0.5em;
+    padding: 1em;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .file-label {
+    padding: 0.6em 1.2em;
+    font-size: 0.9rem;
+  }
+
+  a-scene {
+    width: 100vw;
+    height: calc(100vh - 120px);
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    margin: 0.25em;
+    padding: 0.75em;
+  }
+
+  .file-label {
+    padding: 0.5em 1em;
+    font-size: 0.85rem;
+  }
+}
