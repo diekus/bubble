@@ -26,3 +26,24 @@ if(isDarkMode) {
 } else {
   loadImageFromUrl('./images/start.jpg');
 }
+
+// toggle menu visibility on double click (desktop) or double tap (mobile)
+const menu = document.querySelector('header');
+document.addEventListener('dblclick', () => {
+  menu.classList.toggle('hidden');
+});
+
+let lastTap = 0;
+
+document.addEventListener('touchend', function(e) {
+  const now = Date.now();
+  const DOUBLE_TAP_DELAY = 300; // ms between taps
+
+  if (now - lastTap < DOUBLE_TAP_DELAY) {
+    // Double tap detected!
+    e.preventDefault();
+    menu.classList.toggle('hidden');
+  }
+
+  lastTap = now;
+});

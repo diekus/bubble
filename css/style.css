@@ -66,6 +66,9 @@ a-scene {
   height: 100vh;
   background: var(--background);
 }
+.hidden {
+  display: none;
+}
 
 @media (max-width: 768px) {
   body {
@@ -76,7 +79,7 @@ a-scene {
     grid-row: 3 / -1;
     grid-column: 1 / -1;
     margin: 0.5em;
-    padding: 1em;
+    padding: 0.7em;
     flex-direction: row;
     justify-content: space-evenly;
   }
