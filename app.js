@@ -7,6 +7,8 @@ fileInput.addEventListener('change', (event) => {
   const reader = new FileReader();
   reader.onload = function(e) {
     sky.setAttribute('src', e.target.result);
+    hasUserImage = true;
+    updateShareButtonVisibility();
   };
   reader.readAsDataURL(file);
 });
@@ -33,6 +35,8 @@ if ('launchQueue' in window) {
     if (!launchParams.files || !launchParams.files.length) return;
     const file = await launchParams.files[0].getFile();
     loadImageFromUrl(URL.createObjectURL(file));
+    hasUserImage = true;
+    updateShareButtonVisibility();
   });
 }
 
@@ -44,10 +48,53 @@ if (new URLSearchParams(window.location.search).get('shared') === '1') {
     if (!response) return;
     const blob = await response.blob();
     loadImageFromUrl(URL.createObjectURL(blob));
+    hasUserImage = true;
+    updateShareButtonVisibility();
     await cache.delete('/shared-image');
     history.replaceState(null, '', window.location.pathname);
   });
 }
+
+// outgoing share: send the currently loaded image out via the OS share sheet.
+// Only offered once the user has actually loaded an image (not the default start image),
+// and only in browsers that support sharing files at all.
+const shareButton = document.getElementById('shareButton');
+let hasUserImage = false;
+let canShareFiles = false;
+if (navigator.share && navigator.canShare) {
+  const testFile = new File([''], 'test.jpg', { type: 'image/jpeg' });
+  canShareFiles = navigator.canShare({ files: [testFile] });
+}
+
+function updateShareButtonVisibility() {
+  shareButton.hidden = !(canShareFiles && hasUserImage);
+}
+
+async function getCurrentImageFile() {
+  const src = sky.getAttribute('src');
+  if (!src) return null;
+  const response = await fetch(src);
+  const blob = await response.blob();
+  const extensionMatch = /\.(\w+)(?:$|\?)/.exec(src);
+  const extension = extensionMatch ? extensionMatch[1] : 'jpg';
+  return new File([blob], `bubble-360.${extension}`, { type: blob.type || 'image/jpeg' });
+}
+
+shareButton.addEventListener('click', async () => {
+  const file = await getCurrentImageFile();
+  if (!file) return;
+  try {
+    await navigator.share({
+      files: [file],
+      title: '360° photo from bubble',
+      text: 'Take a look at this 360° photo, https://diek.us/bubble.'
+    });
+  } catch (err) {
+    if (err.name !== 'AbortError') {
+      console.error('Share failed', err);
+    }
+  }
+});
 
 // demo gallery: bottom-sheet picker over GALLERY_IMAGES (see gallery-data.js)
 const galleryButton = document.getElementById('galleryButton');
@@ -69,6 +116,8 @@ function renderGallery() {
       loadImageFromUrl(src);
       closeGallery();
       galleryHeader.classList.add('hidden');
+      hasUserImage = true;
+      updateShareButtonVisibility();
     });
     galleryGrid.appendChild(item);
   });
