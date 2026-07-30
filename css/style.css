@@ -70,6 +70,33 @@ header.hidden {
 .file-label input[type="file"] {
   display: none;
 }
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75em;
+  height: 2.75em;
+  padding: 0;
+  background: var(--theme);
+  color: var(--foreground);
+  border-radius: 50%;
+  border: 2px solid var(--bubble-theme);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.icon-button:hover {
+  background: var(--theme-hover);
+}
+.icon-button svg {
+  width: 1.2em;
+  height: 1.2em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 main {
   width: 100%;
   height: 100dvh;
@@ -104,6 +131,11 @@ a-scene {
     font-size: 0.9rem;
   }
 
+  .icon-button {
+    width: 2.4em;
+    height: 2.4em;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -115,6 +147,11 @@ a-scene {
   .pill-button {
     padding: 0.5em 1em;
     font-size: 0.85rem;
+  }
+
+  .icon-button {
+    width: 2.2em;
+    height: 2.2em;
   }
 }
 
@@ -155,6 +192,14 @@ a-scene {
     min-width: 0;
     padding: 0.25em 0.75em;
     font-size: 0.8rem;
+  }
+
+  header .icon-button {
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
+    width: 1.75em;
+    height: 1.75em;
+    flex-shrink: 0;
   }
 
   .menu-hint {
