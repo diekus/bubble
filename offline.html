@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#22223b">
+  <title>bubble — offline</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/light.css" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+</head>
+<body class="offline-page">
+  <main>
+    <picture>
+      <source srcset="images/bubble-logo.png" media="(prefers-color-scheme: light)" />
+      <source srcset="images/bubble-logo-dark.png" media="(prefers-color-scheme: dark)" />
+      <img src="images/bubble-logo.png" alt="bubble pictures logo" height="60" />
+    </picture>
+    <h1>You're offline</h1>
+    <p>Bubble can't reach the network right now. Reconnect and reload to browse or load a new 360&deg; image.</p>
+    <button id="retry">Try again</button>
+  </main>
+  <script>
+    document.getElementById('retry').addEventListener('click', () => location.reload());
+  </script>
+</body>
+</html>

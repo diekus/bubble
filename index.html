@@ -25,16 +25,28 @@
           <img src="images/bubble-logo.png" alt="bubble pictures logo" height="50" />
         </picture>
     </h1>
-    <label class="file-label">
+    <label class="file-label pill-button">
       <input type="file" id="fileInput" accept="image/*">
       <span>Select Image</span>
     </label>
+    <button type="button" id="galleryButton" class="pill-button gallery-button">Gallery</button>
+    <p class="menu-hint">Double tap to show/hide menu</p>
   </header>
   <main>
     <a-scene embedded>
       <a-sky id="sky" color="white" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 200000"></a-sky>
     </a-scene>
   </main>
+  <div id="galleryOverlay" class="gallery-overlay" inert aria-hidden="true">
+    <div class="gallery-panel" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+      <div class="gallery-panel-header">
+        <h2 id="galleryTitle">Choose a 360&deg; image</h2>
+        <button type="button" id="galleryClose" class="gallery-close" aria-label="Close gallery">&times;</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </div>
+  <script src="gallery-data.js"></script>
   <script src="app.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
