@@ -85,6 +85,9 @@ header.hidden {
   cursor: pointer;
   transition: background 0.2s;
 }
+.icon-button[hidden] {
+  display: none;
+}
 .icon-button:hover {
   background: var(--theme-hover);
 }
