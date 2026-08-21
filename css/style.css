@@ -158,55 +158,25 @@ a-scene {
   }
 }
 
-/* window-controls-overlay: compact titlebar strip when installed as a desktop app with WCO active.
-   Unsupported browsers simply never match this media query, so the normal header above is the fallback. */
+/* window-controls-overlay: hides the OS titlebar only. Layout (header, menu) is unchanged;
+   #wcoTitlebar is an invisible strip spanning the reclaimed titlebar area so the now-title-bar-less
+   window can still be dragged. Unsupported browsers never match this query, so the normal header/
+   titlebar above is the fallback. */
+#wcoTitlebar {
+  display: none;
+}
+
 @media (display-mode: window-controls-overlay) {
-  header {
+  #wcoTitlebar {
+    display: block;
     position: fixed;
     top: env(titlebar-area-y, 0);
     left: env(titlebar-area-x, 0);
     width: env(titlebar-area-width, 100%);
     height: env(titlebar-area-height, 33px);
-    margin: 0;
-    padding: 0 0.75em;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.75em;
-    border-radius: 0;
     -webkit-app-region: drag;
     app-region: drag;
-  }
-
-  header h1 {
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  header img {
-    height: 20px;
-  }
-
-  header .pill-button {
-    -webkit-app-region: no-drag;
-    app-region: no-drag;
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 0.25em 0.75em;
-    font-size: 0.8rem;
-  }
-
-  header .icon-button {
-    -webkit-app-region: no-drag;
-    app-region: no-drag;
-    width: 1.75em;
-    height: 1.75em;
-    flex-shrink: 0;
-  }
-
-  .menu-hint {
-    display: none;
+    z-index: 9998;
   }
 }
 
