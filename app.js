@@ -44,13 +44,13 @@ if ('launchQueue' in window) {
 if (new URLSearchParams(window.location.search).get('shared') === '1') {
   const SHARE_CACHE = 'bubble-share-target';
   caches.open(SHARE_CACHE).then(async (cache) => {
-    const response = await cache.match('/shared-image');
+    const response = await cache.match('shared-image');
     if (!response) return;
     const blob = await response.blob();
     loadImageFromUrl(URL.createObjectURL(blob));
     hasUserImage = true;
     updateShareButtonVisibility();
-    await cache.delete('/shared-image');
+    await cache.delete('shared-image');
     history.replaceState(null, '', window.location.pathname);
   });
 }

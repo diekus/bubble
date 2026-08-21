@@ -1,24 +1,24 @@
 importScripts('gallery-data.js');
 
-const CACHE_NAME = '360viewer-cache-v3';
+const CACHE_NAME = '360viewer-cache-v4';
 const SHARE_CACHE = 'bubble-share-target';
-const OFFLINE_URL = '/offline.html';
+const OFFLINE_URL = 'offline.html';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/offline.html',
-  '/css/style.css',
-  '/css/dark.css',
-  '/css/light.css',
-  '/app.js',
-  '/gallery-data.js',
-  '/manifest.json',
-  '/images/favicon.png',
-  '/images/bubble-logo.png',
-  '/images/bubble-logo-dark.png',
-  '/images/icon-192.png',
-  '/images/icon-512.png',
-  ...GALLERY_IMAGES.map(img => '/' + img.src)
+  './',
+  'index.html',
+  'offline.html',
+  'css/style.css',
+  'css/dark.css',
+  'css/light.css',
+  'app.js',
+  'gallery-data.js',
+  'manifest.json',
+  'images/favicon.png',
+  'images/bubble-logo.png',
+  'images/bubble-logo-dark.png',
+  'images/icon-192.png',
+  'images/icon-512.png',
+  ...GALLERY_IMAGES.map(img => img.src)
 ];
 
 self.addEventListener('install', event => {
@@ -46,15 +46,15 @@ async function handleShareTarget(event) {
   const file = formData.get('images');
   if (file) {
     const cache = await caches.open(SHARE_CACHE);
-    await cache.put('/shared-image', new Response(file));
+    await cache.put('shared-image', new Response(file));
   }
-  return Response.redirect('/?shared=1', 303);
+  return Response.redirect('./?shared=1', 303);
 }
 
-self.addEventListener('fetch', event => {
-  const requestUrl = new URL(event.request.url);
+const SHARE_TARGET_URL = new URL('share-target/', self.registration.scope).href;
 
-  if (event.request.method === 'POST' && requestUrl.pathname === '/share-target/') {
+self.addEventListener('fetch', event => {
+  if (event.request.method === 'POST' && event.request.url === SHARE_TARGET_URL) {
     event.respondWith(handleShareTarget(event));
     return;
   }
