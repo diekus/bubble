@@ -159,9 +159,10 @@ a-scene {
 }
 
 /* window-controls-overlay: hides the OS titlebar only. Layout (header, menu) is unchanged;
-   #wcoTitlebar is an invisible strip spanning the reclaimed titlebar area so the now-title-bar-less
-   window can still be dragged. Unsupported browsers never match this query, so the normal header/
-   titlebar above is the fallback. */
+   #wcoTitlebar is an invisible strip spanning the reclaimed titlebar area, and the header itself
+   is also made draggable, so the now-title-bar-less window can still be moved from either. Buttons
+   and the file-select label opt back out of the drag so they stay clickable. Unsupported browsers
+   never match this query, so the normal header/titlebar above is the fallback. */
 #wcoTitlebar {
   display: none;
 }
@@ -177,6 +178,18 @@ a-scene {
     -webkit-app-region: drag;
     app-region: drag;
     z-index: 9998;
+  }
+
+  header {
+    -webkit-app-region: drag;
+    app-region: drag;
+  }
+
+  header .pill-button,
+  header .icon-button,
+  header .file-label {
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
   }
 }
 
