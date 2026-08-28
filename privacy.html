@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#22223b">
+  <title>bubble — privacy policy</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/light.css" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+</head>
+<body class="privacy-page">
+  <main>
+    <article>
+      <picture>
+        <source srcset="images/bubble-logo.png" media="(prefers-color-scheme: light)" />
+        <source srcset="images/bubble-logo-dark.png" media="(prefers-color-scheme: dark)" />
+        <img src="images/bubble-logo.png" alt="bubble pictures logo" height="50" />
+      </picture>
+      <h1>Privacy policy</h1>
+      <p>Bubble is a 360&deg; image viewer that runs entirely in your browser. This page explains what happens to your images and data when you use it.</p>
+
+      <h2>Your images never leave your device</h2>
+      <p>When you select an image, open one from the demo gallery, or open/share an image into bubble, it's loaded and displayed locally in your browser. Bubble has no server, and does not upload, transmit, or store your images anywhere outside your own device.</p>
+
+      <h2>Offline storage</h2>
+      <p>Bubble is installable as an app and works offline. To make this possible, your browser's cache (via a service worker) stores:</p>
+      <ul>
+        <li>The app's own files (HTML, CSS, JavaScript) and the demo gallery images, so bubble can load without a network connection.</li>
+        <li>An image you share into bubble from another app, held briefly in your browser's cache so it can be opened.</li>
+      </ul>
+      <p>This storage lives entirely on your device, under your browser's control. Clearing your browser's site data for bubble removes it.</p>
+
+      <h2>No tracking, no analytics, no accounts</h2>
+      <p>Bubble does not use cookies, analytics, or third-party trackers, and does not require you to create an account or sign in.</p>
+
+      <h2>Third-party resources</h2>
+      <p>Bubble loads the <a href="https://aframe.io/" target="_blank" rel="noopener">A-Frame</a> library from a public CDN to render images. Your browser fetches this file directly from that CDN according to its own privacy practices.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If this policy changes, the updated version will be published on this page.</p>
+    </article>
+  </main>
+</body>
+</html>

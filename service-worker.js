@@ -1,12 +1,13 @@
 importScripts('gallery-data.js');
 
-const CACHE_NAME = '360viewer-cache-v6';
+const CACHE_NAME = '360viewer-cache-v7';
 const SHARE_CACHE = 'bubble-share-target';
 const OFFLINE_URL = 'offline.html';
 const urlsToCache = [
   './',
   'index.html',
   'offline.html',
+  'privacy.html',
   'css/style.css',
   'css/dark.css',
   'css/light.css',
