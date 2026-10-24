@@ -1,9 +1,9 @@
 {
   "name": "bubble 360",
   "short_name": "bubble 360",
-  "id": "bubble360",
-  "start_url": "/bubble/",
-  "scope": "/bubble/",
+  "id": "dks-bubble",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone"],
   "background_color": "#AFAFAF",
