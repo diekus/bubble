@@ -1,7 +1,11 @@
 [
   {
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target" : { "namespace": "android_app", "package_name": "us.diek.bubble",
-               "sha256_cert_fingerprints": ["C6:DA:5F:B0:76:4D:D3:93:43:E2:5E:47:4D:E0:13:1B:38:BC:3F:A6:53:0C:09:CC:A2:B7:49:73:49:DB:11:51"] }
-}
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "us.diek.bubble",
+      "sha256_cert_fingerprints":
+        ["C6:DA:5F:B0:76:4D:D3:93:43:E2:5E:47:4D:E0:13:1B:38:BC:3F:A6:53:0C:09:CC:A2:B7:49:73:49:DB:11:51"]
+    }
+  }
 ]
